@@ -1,0 +1,164 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100dvh;
+    place-content: center;
+}
+
+:root{
+  --box-shadow: 0px 0px 8px 2px rgba(0,0,0,.15);
+}
+
+/* Layout the two forms side by side */
+.forms-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.2rem;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+  }
+  
+  
+  /* Style each individual form */
+  form {
+    max-height: min-content;
+    
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: max(40vw, 500px);
+
+    & h2 {
+      margin: 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Form fields */
+  form > div:not(:last-child) {
+    display: grid;
+    margin-bottom: 0.35rem;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    gap: 1rem;
+
+    &:has(>.field-error){
+      margin-block: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 0.1rem;
+      & *{
+        margin: 0;
+        flex-grow: 1;
+        color: red;
+      }
+    }
+  }
+  
+  /* Labels */
+  form label {
+    display: inline-block;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Inputs and selects */
+  form input[type="number"],
+  form select {
+    display: inline-block;
+    padding-block: 0.25rem;
+    padding-inline: 0.35rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s ease;
+  }
+  
+  form input[type="number"]:focus,
+  form select:focus {
+    border-color: #0077ff;
+    outline: none;
+  }
+  
+
+  /* Buttons */
+  form button {
+    display: block;
+    margin-left: auto;
+    background-color: #0077ff;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #005fcc;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .forms-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    form {
+      width: 90%;
+    }
+  }
+
+.price_prediction{
+  position: relative;
+}
+.prediction_result{
+  position: absolute;
+  width: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  
+  font-size: large;
+  color: #eeeeee;
+  background-color: #012a58dc;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(1.5px);
+
+  & p{
+    font-size: medium;
+  }
+
+  & :first-child {
+    margin-block-start: 0.15rem;
+    color: white;
+  }
+  & :last-child {
+    margin-block-end: 0.15rem;
+  }
+  
+  & button{
+    background-color: rgb(195, 3, 3);
+  }
+}
+
+
+form.add_training_row div:last-child{
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  
+  & .retrain{
+    background-color: rgb(67, 20, 138);
+    &:hover{
+      filter: contrast(0.65);
+    }
+  }
+}

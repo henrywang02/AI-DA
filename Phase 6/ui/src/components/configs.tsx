@@ -1,0 +1,18 @@
+export const VALID_FIELDS = [
+	"engine_type",
+	"fuel_type",
+	"transmission",
+	"body_type",
+	"has_incidents",
+	"wheel_system",
+	"horsepower",
+	"maximum_seating",
+	"mileage",
+	"torque",
+	"year",
+	"combined_fuel_economy",
+	"legroom",
+	"major_options_count",
+	"size_of_vehicle",
+  "price"
+]

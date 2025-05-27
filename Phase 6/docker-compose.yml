@@ -1,0 +1,23 @@
+services:
+  prediction-api:
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
+
+    # In production api is not directly exposed
+    # nginx will route certain traffic to api
+    # ports:
+    #   - "8000:8000"    
+    restart: always
+
+
+  # Nginx will serve the static ui files from react/ui
+  nginx-proxy:
+    depends_on: 
+      - prediction-api
+    build: 
+      context: ./ui/
+      dockerfile: Dockerfile
+    ports: 
+      - "80:80"
+    restart: always
